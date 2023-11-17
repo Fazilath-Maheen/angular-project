@@ -1,10 +1,20 @@
 pipeline {
-  agent any 
+  agent any
   stages {
-    stage('Build') {
+    stage('main') {
+      when {
+        branch 'main'
+      }
       steps {
-        echo "hellooooo"
-        sh 'java Hello.java'
+        echo 'hello main..........'
+      }
+    }
+    stage('develop') {
+      when {
+        branch 'branch-1'
+      }
+      steps {
+        echo 'hello branch-1.......'
       }
     }
   }
